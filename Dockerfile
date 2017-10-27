@@ -2,6 +2,7 @@ FROM ubuntu:trusty
 
 EXPOSE 3306
 
+RUN sed -i.bak "s|security.ubuntu.com/ubuntu|ports.ubuntu.com/ubuntu-ports|g" /etc/apt/sources.list
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y mysql-server && \
     rm -rf /var/lib/apt/lists/*
